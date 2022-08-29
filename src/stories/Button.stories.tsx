@@ -36,3 +36,10 @@ Block.args = {
   block: true,
   children: <span>Web-2</span>,
 };
+
+export const Disabled = Template.bind({});
+Disabled.args = {
+  type: 'default',
+  disabled: true,
+  children: <span>Web-2</span>,
+};

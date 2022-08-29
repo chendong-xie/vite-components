@@ -1,6 +1,6 @@
 import classNames from 'classnames';
 import { FC, PropsWithChildren } from 'react';
-import styles from './index.module.css';
+import './index.css';
 
 type Props = {
   /** 类型 */
@@ -17,10 +17,12 @@ type Props = {
   suffix?: React.ReactNode;
   /**是否有点击动画 */
   animated?: boolean;
+  /**禁用 */
+  disabled?: boolean;
 };
 
 export type ButtonProps = PropsWithChildren<
-  Props & Omit<React.ButtonHTMLAttributes<HTMLButtonElement>, 'type' | 'prefix'>
+  Props & Omit<React.ButtonHTMLAttributes<HTMLButtonElement>, 'type' | 'prefix' | 'disabled'>
 >;
 
 const Button: FC<ButtonProps> = ({
@@ -46,16 +48,16 @@ const Button: FC<ButtonProps> = ({
 
   // logic functions start
   const classes = classNames(
-    styles.button,
+    'button',
     'disabled:bg-[#999999] disabled:border-[#999999]  disabled:cursor-not-allowed',
-    className,
     {
-      [styles[`button-${type}`]]: type,
-      [styles[`button-size-${size}`]]: size,
-      [styles[`button-shape-${shape}`]]: shape,
-      [styles['button-block']]: block,
-      [styles['button-no-animation']]: !animated || disabled,
+      [`button-${type}`]: type,
+      [`button-size-${size}`]: size,
+      [`button-shape-${shape}`]: shape,
+      ['button-block']: block,
+      ['button-no-animation']: !animated || disabled,
     },
+    className,
   );
   // logic functions end
 

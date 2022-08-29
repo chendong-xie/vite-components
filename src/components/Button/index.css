@@ -4,7 +4,7 @@
   transform: none !important;
 }
 .button {
-  @apply relative inline-flex items-center justify-center font-semibold whitespace-nowrap outline-none focus:outline-none
+  @apply relative inline-flex items-center justify-center font-semibold whitespace-nowrap overflow-hidden outline-none focus:outline-none
       cursor-pointer select-none touch-manipulation animate-[var(--button-animation,button-pop_0.25s_ease-out)] active:hover:animate-none active:focus:animate-none
       active:hover:scale-[var(--button-animation-scale,0.98)] active:focus:scale-[var(--button-animation-scale,0.98)] transition-transform;
 }
