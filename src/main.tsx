@@ -5,6 +5,8 @@ import Button from './components/Button';
 
 ReactDOM.createRoot(document.getElementById('root') as HTMLElement).render(
   <React.StrictMode>
-    <Button size='large'>test</Button> 
+    <Button size='large' block>
+      test
+    </Button>
   </React.StrictMode>,
 );

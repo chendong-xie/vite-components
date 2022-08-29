@@ -1,59 +1,58 @@
 .button-no-animation {
-    --button-animation: noAnimation 0s;
-    --button-animation-scale: 1;
-    transform: none !important;
-  }
-  .button {
-    @apply relative inline-flex items-center justify-center font-semibold whitespace-nowrap outline-none focus:outline-none
+  --button-animation: noAnimation 0s;
+  --button-animation-scale: 1;
+  transform: none !important;
+}
+.button {
+  @apply relative inline-flex items-center justify-center font-semibold whitespace-nowrap outline-none focus:outline-none
       cursor-pointer select-none touch-manipulation animate-[var(--button-animation,button-pop_0.25s_ease-out)] active:hover:animate-none active:focus:animate-none
       active:hover:scale-[var(--button-animation-scale,0.98)] active:focus:scale-[var(--button-animation-scale,0.98)] transition-transform;
+}
+.button-default {
+  @apply text-Grey05 bg-White border border-solid border-Grey02;
+}
+.button-primary {
+  @apply bg-Blue04 text-White border border-solid border-Blue04 hover:bg-[#0b7cca] focus:bg-[#0b7cca];
+}
+.button-link {
+  @apply bg-transparent text-Blue04 border-none;
+}
+.button-size-default {
+  @apply h-[32px] px-[10px] py-[7px] text-[15px];
+}
+
+.button-size-small {
+  @apply h-[22px] px-[10px] py-[6px] text-[13px];
+}
+
+.button-size-large {
+  @apply h-[48px] px-[12px] py-[8px] text-[17px];
+}
+.button-shape-default {
+  @apply rounded-[100px];
+}
+
+.button-shape-circle.button-size-default {
+  @apply rounded-full w-7 h-7;
+}
+
+.button-shape-circle.button-size-large {
+  @apply rounded-full w-11 h-11;
+}
+.button-shape-circle.button-size-small {
+  @apply rounded-full w-5 h-5;
+}
+.button-block {
+  @apply w-full;
+}
+@keyframes button-pop {
+  0% {
+    transform: scale(var(--button-animation-scale, 0.98));
   }
-  .button-default {
-    @apply text-Grey05 bg-White border border-solid border-Grey02;
+  40% {
+    transform: scale(1.02);
   }
-  .button-primary {
-    @apply bg-Blue04 text-White border border-solid border-Blue04 hover:bg-[#0b7cca] focus:bg-[#0b7cca];
+  100% {
+    transform: scale(1);
   }
-  .button-link {
-    @apply bg-transparent text-Blue04;
-  }
-  .button-size-default {
-    @apply h-[32px] px-[10px] py-[7px] text-[15px];
-  }
-  
-  .button-size-small {
-    @apply h-[22px] px-[10px] py-[6px] text-[13px];
-  }
-  
-  .button-size-large {
-    @apply h-[48px] px-[12px] py-[8px] text-[17px];
-  }
-  .button-shape-default {
-    @apply rounded-[100px];
-  }
-  
-  .button-shape-circle.button-size-default {
-    @apply rounded-full w-7 h-7;
-  }
-  
-  .button-shape-circle.button-size-large {
-    @apply rounded-full w-11 h-11;
-  }
-  .button-shape-circle.button-size-small {
-    @apply rounded-full w-5 h-5;
-  }
-  .button-block {
-    @apply w-full;
-  }
-  @keyframes button-pop {
-    0% {
-      transform: scale(var(--button-animation-scale, 0.98));
-    }
-    40% {
-      transform: scale(1.02);
-    }
-    100% {
-      transform: scale(1);
-    }
-  }
-  
+}
