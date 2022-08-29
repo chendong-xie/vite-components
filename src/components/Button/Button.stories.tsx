@@ -1,6 +1,6 @@
 import { ComponentStory, ComponentMeta } from '@storybook/react';
 
-import Button from '../components/Button';
+import Button from './index';
 
 // More on default export: https://storybook.js.org/docs/react/writing-stories/introduction#default-export
 export default {
@@ -41,5 +41,6 @@ export const Disabled = Template.bind({});
 Disabled.args = {
   type: 'default',
   disabled: true,
+  className: 'bg-Blue04',
   children: <span>Web-2</span>,
 };
