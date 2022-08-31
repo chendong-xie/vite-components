@@ -42,7 +42,7 @@ const parseThickening = (text: string): string => {
   if (text && typeof text === 'string' && text.includes(THICKENING_KEY)) {
     return doParsing(text, THICKENING_KEY, getThickeningStr);
   }
-  return '';
+  return text;
 };
 
 /** 解析删除线语法(双波浪线): ~~ ~~ */
@@ -50,7 +50,7 @@ const parseStrikethrough = (text: string) => {
   if (text && typeof text === 'string' && text.includes(STRIKETHROUGH_KEY)) {
     return doParsing(text, STRIKETHROUGH_KEY, getStrikethroughStr);
   }
-  return '';
+  return text;
 };
 
 /** 解析斜体语法(单波浪线): ~ ~ */
@@ -58,7 +58,7 @@ const parseItalic = (text: string) => {
   if (text && typeof text === 'string' && text.includes(ITALIC_KEY)) {
     return doParsing(text, ITALIC_KEY, getItalicStr);
   }
-  return '';
+  return text;
 };
 
 const parseMarkdownStr = compose(parseItalic, parseStrikethrough, parseThickening);

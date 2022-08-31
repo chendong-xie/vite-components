@@ -18,6 +18,7 @@ type IProps = {
   title?: string;
   /** 展示的文案，只能是字符串 */
   text: string;
+  expandedBtn?: any;
 };
 
 /** 行高 */
@@ -36,6 +37,7 @@ const Paragraph: FC<IProps> = ({
   title,
   titleClassName,
   bodyClassName,
+  expandedBtn
 }) => {
   /** 展示文案dom，主要用来计算scrollHieght */
   const bodyRef = useRef<HTMLDivElement | null>(null);
@@ -98,7 +100,7 @@ const Paragraph: FC<IProps> = ({
         ref={bodyRef}
       >
         <div dangerouslySetInnerHTML={{ __html: parseMarkdownStr(text) }} />
-        {shouldShowMore && (
+        {shouldShowMore && !isExpanded ? (
           <div
             style={{ WebkitTapHighlightColor: 'transparent' }}
             aria-hidden='true'
@@ -116,8 +118,18 @@ const Paragraph: FC<IProps> = ({
                 ....
               </div>
             )}
-            <div className='bg-zinc-50'>{isExpanded ? '收起' : '查看更多'}</div>
+            <div className='bg-zinc-50'>查看更多</div>
           </div>
+        ) : (
+          expandedBtn && (
+            <div
+              className={expandedBtnClassnames}
+              aria-hidden='true'
+              onClick={triggerClickShowMore}
+            >
+              {expandedBtn}
+            </div>
+          )
         )}
       </div>
     </div>
