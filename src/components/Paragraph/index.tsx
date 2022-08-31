@@ -18,7 +18,10 @@ type IProps = {
   title?: string;
   /** 展示的文案，只能是字符串 */
   text: string;
-  expandedBtn?: any;
+  /** 展开文案后的收起按钮，如果有则展示，点击后收起 */
+  closeBtn?: any;
+  /** 查看更多文案，默认为中文的 查看更多 */
+  showMoreText?: string;
 };
 
 /** 行高 */
@@ -37,7 +40,8 @@ const Paragraph: FC<IProps> = ({
   title,
   titleClassName,
   bodyClassName,
-  expandedBtn
+  closeBtn,
+  showMoreText = '查看更多',
 }) => {
   /** 展示文案dom，主要用来计算scrollHieght */
   const bodyRef = useRef<HTMLDivElement | null>(null);
@@ -59,12 +63,6 @@ const Paragraph: FC<IProps> = ({
       setBodyMaxHieght(DEFAULT_LINE_HEIGHT * overline);
     }
   };
-
-  useEffect(() => {
-    const str = 'asd**fds**123~234~sdffg~~sdfs~~sdf';
-    const res = parseMarkdownStr(str);
-    console.log('~~~~~~~~~~~', res);
-  }, []);
 
   useEffect(() => {
     if (bodyRef.current) {
@@ -118,16 +116,16 @@ const Paragraph: FC<IProps> = ({
                 ....
               </div>
             )}
-            <div className='bg-zinc-50'>查看更多</div>
+            <div className='bg-zinc-50'>{showMoreText}</div>
           </div>
         ) : (
-          expandedBtn && (
+          closeBtn && (
             <div
               className={expandedBtnClassnames}
               aria-hidden='true'
               onClick={triggerClickShowMore}
             >
-              {expandedBtn}
+              {closeBtn}
             </div>
           )
         )}
