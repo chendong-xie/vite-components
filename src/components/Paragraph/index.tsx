@@ -1,6 +1,7 @@
 import classnames from 'classnames';
 import { useEffect, useRef, useState } from 'react';
 import type { CSSProperties, FC } from 'react';
+import parseMarkdownStr from '../../utils/parseMarkdownStr';
 
 type IProps = {
   /** title样式 */
@@ -22,6 +23,7 @@ type IProps = {
 /** 行高 */
 const DEFAULT_LINE_HEIGHT = 22;
 
+/** 展开按钮样式类 */
 const expandedBtnClassnames = classnames(
   "flex items-baseline absolute bottom-[-1px] right-[2px] h-[22px] font-bold text-slate-600 cursor-pointer before:block before:absolute before:content-[''] before:left-[-16px] before:top-[-16px] before:right-[-16px] before:bottom-[-16px]",
 );
@@ -57,6 +59,12 @@ const Paragraph: FC<IProps> = ({
   };
 
   useEffect(() => {
+    const str = 'asd**fds**123~234~sdffg~~sdfs~~sdf';
+    const res = parseMarkdownStr(str);
+    console.log('~~~~~~~~~~~', res);
+  }, []);
+
+  useEffect(() => {
     if (bodyRef.current) {
       const scrollHieght = bodyRef.current.scrollHeight;
       // 加DEFAULT_LINE_HEIGHT / 2为了兼容safari
@@ -89,7 +97,7 @@ const Paragraph: FC<IProps> = ({
         style={{ ...bodyStyles, maxHeight: `${bodyMaxHieght}px` }}
         ref={bodyRef}
       >
-        {text}
+        <div dangerouslySetInnerHTML={{ __html: parseMarkdownStr(text) }} />
         {shouldShowMore && (
           <div
             style={{ WebkitTapHighlightColor: 'transparent' }}
@@ -99,7 +107,10 @@ const Paragraph: FC<IProps> = ({
           >
             {isExpanded ? null : (
               <div
-                style={{ background: 'linear-gradient(to left, #fff, rgba(255, 255, 255, 0.7))' }}
+                style={{
+                  background:
+                    'linear-gradient(to left, rgba(255, 255, 255, 1), rgba(255, 255, 255, 0.7))',
+                }}
                 className='tracking-[2px] w-[70px] flex justify-end'
               >
                 ....

@@ -65,3 +65,10 @@ WithStyles.args = {
     color: 'red'
   }
 };
+
+export const WithMarkdownSyntax = Template.bind({});
+// More on args: https://storybook.js.org/docs/react/writing-stories/args
+WithMarkdownSyntax.args = {
+  title: 'Modern website templates, crafted with Tailwind CSS',
+  text: '**Visually-stunning**, easy to ~customize site templates~ built ~~with React and Next.js~~. The perfect starting point for your next project and the ultimate resource for learning how experts build real websites with Tailwind CSS',
+};
