@@ -15,7 +15,7 @@ export default defineConfig({
   build: {
     lib: {
       entry: resolvePath('src/components/index.ts'),
-      name: 'web2',
+      name: '@weee-fe/web2-ui',
       fileName: (format) => `web2.${format}.js`,
     },
     rollupOptions: {

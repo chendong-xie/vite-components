@@ -1,7 +1,11 @@
 {
-  "name": "web2",
+  "name": "@weee-fe/web2-ui",
   "type": "module",
-  "version": "1.0.3",
+  "version": "1.0.0",
+  "author": {
+    "name": "weee",
+    "url": "http://www.sayweee.com"
+  },
   "files": [
     "dist"
   ],
@@ -27,6 +31,7 @@
     "react-dom": "18.0.6"
   },
   "dependencies": {
+    "@weee-fe/web2-ui": "file:.yalc/@weee-fe/web2-ui",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "web2": "file:.yalc/web2"
