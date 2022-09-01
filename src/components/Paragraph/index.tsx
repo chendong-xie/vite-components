@@ -97,7 +97,7 @@ const Paragraph: FC<IProps> = ({
         style={{ ...bodyStyles, maxHeight: `${bodyMaxHieght}px` }}
         ref={bodyRef}
       >
-        <div dangerouslySetInnerHTML={{ __html: parseMarkdownStr(text) }} />
+        <div className='break-words' dangerouslySetInnerHTML={{ __html: parseMarkdownStr(text) }} />
         {shouldShowMore && !isExpanded ? (
           <div
             style={{ WebkitTapHighlightColor: 'transparent' }}
