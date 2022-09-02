@@ -22,6 +22,8 @@ type IProps = {
   closeBtn?: any;
   /** 查看更多文案，默认为中文的 查看更多 */
   showMoreText?: string;
+  /**样式 */
+  className?: string;
 };
 
 /** 行高 */
@@ -42,6 +44,7 @@ const Paragraph: FC<IProps> = ({
   bodyClassName,
   closeBtn,
   showMoreText = '查看更多',
+  className,
 }) => {
   /** 展示文案dom，主要用来计算scrollHieght */
   const bodyRef = useRef<HTMLDivElement | null>(null);
@@ -86,7 +89,7 @@ const Paragraph: FC<IProps> = ({
   );
 
   return (
-    <div className='relative flex overflow-hidden flex-col'>
+    <div className={classnames('relative flex overflow-hidden flex-col', className)}>
       {title && (
         <h3 className={titleClassnames} style={titleStyles}>
           {title}
