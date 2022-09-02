@@ -116,7 +116,7 @@ const Paragraph: FC<IProps> = ({
                 ....
               </div>
             )}
-            <div className='bg-zinc-50'>{showMoreText}</div>
+            <div className='bg-white pr-2'>{showMoreText}</div>
           </div>
         ) : (
           closeBtn && (
